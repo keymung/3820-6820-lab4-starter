@@ -1,0 +1,9 @@
+---
+#Install apache2 on ubuntu/debian hosts
+
+#task 1: install apache2
+- name: Install apache2
+  apt:
+    name: apache2
+    state: present
+    update_cache: yes
