@@ -1,0 +1,22 @@
+---
+#This playbook installs apache2 and git on target servers. It also deploys sample app on apache.
+#Playbooks contain one or more plays.
+#Plays map a list of tasks to be performed on a group of hosts (in a simple sense)
+# Here the tasks import roles and apply those roles to the target hosts
+## The roles themselves have tasks, variables, files, etc. and are typically created as standalone collection
+### of files that can be shared with others.
+
+#play 1 (only one play here)
+- hosts: webservers
+  become: yes
+
+  #tasks
+  tasks:
+    import_role:
+      name: apache-server
+      tags:
+        - install_apache
+    import_role:
+      name: webapp
+      tags:
+        - deploy_webapp
