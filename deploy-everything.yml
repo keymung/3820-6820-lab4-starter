@@ -12,11 +12,11 @@
 
   #tasks
   tasks:
-    import_role:
-      name: apache-server
+    - import_role:
+        name: apache-server
       tags:
         - install_apache
-    import_role:
-      name: webapp
+    - import_role:
+        name: webapp
       tags:
         - deploy_webapp
