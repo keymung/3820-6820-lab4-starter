@@ -19,6 +19,12 @@
 - name: copy files from repo and deploy to webserver
   git:
     repo: "{{ repository }}"
-    dest: /var/www/html
-    update: no
+    dest: /home/website
     
+- name: copy all website files except .git and readme
+  synchronize:
+    src: /home/website
+    dest: /var/www/html
+    rsync_opts:
+      - --exclude=.git
+        --exclude=README.md    
