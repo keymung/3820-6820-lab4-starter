@@ -7,25 +7,21 @@
     state: present
     update_cache: yes
 
-#delete old index.html file from default Document root /var/www/html (better to create a new vhost but
-## this is just for demo)
-# - name: delete of index.html file from default Document Root
-#   file:
-#     path: /var/www/html/index.html
-#     state: absent
-
 # clone the specified repo (variable "repository" must have a value in /roles/webapp/defaults/main.yml file)
-## and deploy it to the default Document Root on the apache servers which is /var/www/html
+## and deploy it to a temporary "website" directory in ubuntu user's home directory
 - name: copy files from repo and deploy to webserver
   git:
     repo: "{{ repository }}"
     dest: /home/ubuntu/website
-    
-- name: copy all website files except .git and readme
+
+# copy all files except .git folder and README.md to the default Document Root on the apache servers
+# this is an indirect way and uses rsync like functionality
+  
+- name: copy all website files except .git and readme to the html directory
   synchronize:
     src: /home/ubuntu/website/
     dest: /var/www/html/
     rsync_opts:
       - "--exclude=.git"
       - "--exclude=README.md"
-  delegate_to: "{{ inventory_hostname }}"    
+  delegate_to: "{{ inventory_hostname }}" # makes both the src and dest from the same target host
