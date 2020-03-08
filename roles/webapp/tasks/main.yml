@@ -27,5 +27,5 @@
     dest: /var/www/html
     rsync_opts:
       - "--exclude=.git"
-        "--exclude=README.md"
+      - "--exclude=README.md"
   delegate_to: "{{ inventory_hostname }}"    
