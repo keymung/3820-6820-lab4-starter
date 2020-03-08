@@ -9,10 +9,10 @@
 
 #delete old index.html file from default Document root /var/www/html (better to create a new vhost but
 ## this is just for demo)
-- name: delete of index.html file from default Document Root
-  file:
-    path: /var/www/html/index.html
-    state: absent
+# - name: delete of index.html file from default Document Root
+#   file:
+#     path: /var/www/html/index.html
+#     state: absent
 
 # clone the specified repo (variable "repository" must have a value in /roles/webapp/defaults/main.yml file)
 ## and deploy it to the default Document Root on the apache servers which is /var/www/html
