@@ -7,3 +7,10 @@
     name: apache2
     state: present
     update_cache: yes
+
+#task 2: allow port set in http_port variable in default/main.yml through UFW
+- name: "UFW - Allow HTTP on port {{ http_port }}"
+  ufw:
+    rule: allow
+    port: "{{ http_port }}"
+    proto: tcp
