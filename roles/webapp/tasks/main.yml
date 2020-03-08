@@ -23,8 +23,8 @@
     
 - name: copy all website files except .git and readme
   synchronize:
-    src: /home/ubuntu/website
-    dest: /var/www/html
+    src: /home/ubuntu/website/
+    dest: /var/www/html/
     rsync_opts:
       - "--exclude=.git"
       - "--exclude=README.md"
