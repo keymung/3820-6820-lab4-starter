@@ -1,0 +1,3 @@
+---
+#this file contains default variables for the apache-server role. Variable values can be edited if needed.
+http_port: "80"
