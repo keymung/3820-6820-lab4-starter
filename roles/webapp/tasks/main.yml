@@ -19,12 +19,13 @@
 - name: copy files from repo and deploy to webserver
   git:
     repo: "{{ repository }}"
-    dest: /home/website
+    dest: /home/home/website
     
 - name: copy all website files except .git and readme
   synchronize:
-    src: /home/website
+    src: /home/ubuntu/website
     dest: /var/www/html
     rsync_opts:
-      - --exclude=.git
-        --exclude=README.md    
+      - "--exclude=.git"
+        "--exclude=README.md"
+  delegate_to: "{{ inventory_hostname }}"    
