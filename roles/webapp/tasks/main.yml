@@ -19,7 +19,7 @@
 - name: copy files from repo and deploy to webserver
   git:
     repo: "{{ repository }}"
-    dest: /home/home/website
+    dest: /home/ubuntu/website
     
 - name: copy all website files except .git and readme
   synchronize:
