@@ -20,4 +20,5 @@
   git:
     repo: "{{ repository }}"
     dest: /var/www/html
+    update: no
     
