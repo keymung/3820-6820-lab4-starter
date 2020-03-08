@@ -2,15 +2,15 @@
 
 #use apt to install Git
 - name: install git 
-    apt:
-      name: git
-      state: present
-      update_cache: yes
+  apt:
+    name: git
+    state: present
+    update_cache: yes
 
 # clone the specified repo (variable "repository" must have a value in /roles/webapp/defaults/main.yml file)
 ## and deploy it to the default Document Root on the apache servers which is /var/www/html
 - name: copy files from repo and deploy to webserver
-    git:
-      repo: "{{ repository }}"
-      dest: /var/www/html
+  git:
+    repo: "{{ repository }}"
+    dest: /var/www/html
     
