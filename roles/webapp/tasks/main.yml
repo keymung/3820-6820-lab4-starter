@@ -4,7 +4,7 @@
 - name: install git 
   apt:
     name: git
-    state: present
+    state: present #installs if not present
     update_cache: yes
 
 # clone the specified repo (variable "repository" must have a value in /roles/webapp/defaults/main.yml file)
