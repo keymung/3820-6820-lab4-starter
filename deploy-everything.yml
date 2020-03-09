@@ -13,6 +13,10 @@
   #tasks
   tasks:
     - import_role:
+        name: common-all
+      tags:
+        - common_configuration
+    - import_role:
         name: apache-server
       tags:
         - install_apache
