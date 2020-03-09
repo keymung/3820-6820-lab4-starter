@@ -1,5 +1,6 @@
 ---
 #This playbook installs apache2 and git on target servers. It also deploys sample app on apache.
+# but first it starts with performing some common tasks on all servers (e.g., enable firewall)
 #Playbooks contain one or more plays.
 #Plays map a list of tasks to be performed on a group of hosts (in a simple sense)
 # Here the tasks import roles and apply those roles to the target hosts
@@ -8,19 +9,19 @@
 
 #play 1 (only one play here)
 - hosts: webservers
-  become: yes
+  become: yes #indicate Ansible to use sudo privileges for all tasks in this play
 
   #tasks
   tasks:
-    - import_role:
-        name: common-all
+    - import_role: #a static import of the specified role
+        name: common-all # this role is present in the roles directory and contains all its associated files
       tags:
-        - common_configuration
+        - common_configuration #tags can be used to make Ansbile run only a particular task
     - import_role:
-        name: apache-server
+        name: apache-server # this role is present in the roles directory and contains all its associated files
       tags:
-        - install_apache
+        - install_apache 
     - import_role:
-        name: webapp
+        name: webapp # this role is present in the roles directory and contains all its associated files
       tags:
         - deploy_webapp
