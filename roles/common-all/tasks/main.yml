@@ -1,0 +1,18 @@
+---
+# common tasks to be performed on all target servers
+
+#ufw setup
+## add rule to allow ssh access on ssh_port (variable defined in roles/common-all/defaults/main.yml)
+- name: Allow access on ssh_port
+  ufw:
+    rule: allow
+    port: "{{ ssh_port }}"
+    proto: tcp
+
+# enable firewall with default deny for all incoming traffic
+- name: Enable ufw with default deny for all other traffic
+  ufw:
+    state: enabled #enables the ufw
+    policy: deny #default deny except add allow rule(s)
+    direction: incoming #apply the policy to inbound traffic (ingress)
+    
