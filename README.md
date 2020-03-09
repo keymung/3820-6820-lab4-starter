@@ -6,7 +6,7 @@ After all files are cloned you'll edit two files:
 
 1. Edit the my_inventory file to add the IP addresses of your target hosts under respective group(s)
 
-2. Edit roles/webapp/defaults/main.yml and add your repository address for the sample website you made in previous assignment as the value to the repository variable (that file has an example on how this will look like)
+2. Edit the roles/webapp/defaults/main.yml file and add your repository address for the sample website you made in previous assignment as the value to the repository variable (*that file has an example on how this will look like, simply replace the example repo link with your repo link.*)
 
 ## Running the deploy-everything.yml playbook
 
