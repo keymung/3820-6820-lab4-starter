@@ -1,4 +1,4 @@
-#Enter the ip addresses of each your target hosts (manageded hosts) one on each line below [webservers]
+#Enter the ip addresses of each your target hosts (managed hosts) one on each line below [webservers]
 # for example your setup may look like below (of course without the comment # signs):
 ## [webservers]
 ## 10.0.1.25
