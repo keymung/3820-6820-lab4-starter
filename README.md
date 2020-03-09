@@ -10,8 +10,7 @@ After all files are cloned you'll edit two files:
 
 ## Running the deploy-everything.yml playbook
 
-To run all tasks and associate roles (and tasks within those roles):
-`ansible-playbook deploy-everything.yml -i my_inventory`
+**Navigate to the cloned directory to make it easier to run playbook or else specify correct paths to files.** To run all tasks and associated roles (and tasks within those roles):
+`ansible-playbook deploy-everything.yml -i my_inventory` (*this is the only step required for assignment*)
 
-To run only a tagged task
-`ansible-playbook deploy-everything.yml -i my_inventory --tags "common_configuration"` for example to run the task with the tag "common_configuration" (see deploy-everything.yml playbook)
+To run only a tagged task: `ansible-playbook deploy-everything.yml -i my_inventory --tags "common_configuration"`, for example, to run the task with the tag "common_configuration" (see deploy-everything.yml playbook for other tags.)
