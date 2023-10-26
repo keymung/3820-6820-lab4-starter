@@ -11,7 +11,7 @@
 ## and deploy it to a temporary "website" directory in ubuntu user's home directory
 - name: copy files from repo and deploy to webserver
   git:
-    repo: "{{ repository }}"
+    repo: "{{ gh repo clone keymung/3820-6820-demo }}"
     dest: /home/ubuntu/website
 
 # copy all files except .git folder and README.md to the default Document Root on the apache servers
